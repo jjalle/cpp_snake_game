@@ -30,6 +30,13 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${PATH_SDL_INCLUDE}
 )
 
+if ( CMAKE_COMPILER_IS_GNUCC )
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+endif()
+if ( MSVC )
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4)
+endif()
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     SDL2::SDL2
     SDL2::SDL2main

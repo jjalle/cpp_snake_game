@@ -5,7 +5,7 @@ if(MSVC)
     # Hello mother - I am empty!
 
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    add_compile_options(-Wall -Wextra -Wpedantic)
+    # Hello mother - I am empty!
 else()
     Message(WARNING "unsupported compiler: ${CMAKE_CXX_COMPILER_ID}")
 endif()

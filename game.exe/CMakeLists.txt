@@ -12,3 +12,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "Game")
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Game
 )
+
+if ( CMAKE_COMPILER_IS_GNUCC )
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+endif()
+if ( MSVC )
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4)
+endif()
