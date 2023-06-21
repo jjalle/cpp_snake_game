@@ -16,7 +16,30 @@ void Input::pollEvents(EventKernel& kernel) {
 			kernel.trigger(ExitEvent());
 		}
 		if (event.type == SDL_KEYDOWN) {
-			kernel.trigger(ExitEvent());
+			if (event.key.keysym.sym == SDL_SCANCODE_UP ||
+				event.key.keysym.sym == SDL_SCANCODE_A)
+			{
+				kernel.trigger(MoveUpEvent());
+			}
+			else if (event.key.keysym.sym == SDL_SCANCODE_DOWN ||
+				event.key.keysym.sym == SDL_SCANCODE_S)
+			{
+				kernel.trigger(MoveDownEvent());
+			}
+			else if (event.key.keysym.sym == SDL_SCANCODE_RIGHT ||
+				event.key.keysym.sym == SDL_SCANCODE_D)
+			{
+				kernel.trigger(MoveRightEvent());
+			}
+			else if (event.key.keysym.sym == SDL_SCANCODE_LEFT ||
+				event.key.keysym.sym == SDL_SCANCODE_A)
+			{
+				kernel.trigger(MoveLeftEvent());
+			}
+			else if (event.key.keysym.sym == SDL_SCANCODE_ESCAPE)
+			{
+				kernel.trigger(ExitEvent());
+			}
 		}
 	}
 }
