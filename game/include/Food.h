@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Map.h"
+#include "Position.h"
 #include "Config.h"
 
 namespace Game {

@@ -1,6 +1,9 @@
 #pragma once
 
 #include <list>
+#include <cstddef>
+
+#include "Position.h"
 #include "Map.h"
 #include "Food.h"
 #include "Event.h"

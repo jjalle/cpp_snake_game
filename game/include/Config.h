@@ -1,4 +1,6 @@
 #pragma once
+#include <cstddef>
+
 #include "Position.h"
 
 namespace Game {

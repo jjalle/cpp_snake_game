@@ -1,6 +1,8 @@
 #pragma once
 
 #include <tuple>
+#include <cstddef>
+
 #include "Config.h"
 #include "Position.h"
 
