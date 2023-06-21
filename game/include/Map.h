@@ -2,6 +2,7 @@
 
 #include <tuple>
 #include <cstddef>
+#include <limits.h>
 
 #include "Config.h"
 #include "Position.h"
