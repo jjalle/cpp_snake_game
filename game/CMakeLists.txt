@@ -9,6 +9,7 @@ target_sources(${PROJECT_NAME}
     ${PATH_LIB_INCLUDE}/Event.h
     ${PATH_LIB_INCLUDE}/Food.h
     ${PATH_LIB_INCLUDE}/Game.h
+    ${PATH_LIB_INCLUDE}/Graphics.h
     ${PATH_LIB_INCLUDE}/Input.h
     ${PATH_LIB_INCLUDE}/Map.h
     ${PATH_LIB_INCLUDE}/Snake.h
@@ -17,6 +18,7 @@ target_sources(${PROJECT_NAME}
     ${PATH_LIB_SRC}/Event.cpp
     ${PATH_LIB_SRC}/Food.cpp
     ${PATH_LIB_SRC}/Game.cpp
+    ${PATH_LIB_SRC}/Graphics.cpp
     ${PATH_LIB_SRC}/Input.cpp
     ${PATH_LIB_SRC}/Map.cpp
     ${PATH_LIB_SRC}/Snake.cpp
@@ -30,4 +32,5 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     SDL2::SDL2
+    SDL2::SDL2main
 )

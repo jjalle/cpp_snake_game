@@ -9,6 +9,6 @@ target_sources(${PROJECT_NAME}
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "Game")
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME} PUBLIC
     Game
 )

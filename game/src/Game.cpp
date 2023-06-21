@@ -1,39 +1,21 @@
 #include <sstream>
+#include <functional>
 
 #include "Game.h"
-#include "SDL.h"
 
 namespace Game {
 
-Game::Game(const Config& config) : running_(true), kernel_(), world_(config), window_(nullptr) {
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		auto ss = std::stringstream{ "SDL could not be initialized:" } << SDL_GetError();
-		throw new std::runtime_error(ss.str());
-	}
-	window_ = SDL_CreateWindow(
-		"Snake game",
-		SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED,
-		640,
-		480,
-		0
-	);
-	if (window_ == nullptr)
-	{
-		auto ss = std::stringstream{ "SDL could not create window:" } << SDL_GetError();
-		throw new std::runtime_error(ss.str());
-	}
-}
-
-Game::~Game() {
-	SDL_DestroyWindow(window_);
-	SDL_Quit();
+Game::Game(const Config& config) : running_(true), kernel_(), world_(config), graphics_(config), input_(config) {
+	EventCallback exitCallback = std::bind(&Game::onExit, this, std::placeholders::_1);
+	kernel_.subscribe(EventType::EXIT, exitCallback);
 }
 
 int Game::run() {
 	while (running_) {
+		input_.pollEvents(kernel_);
+		kernel_.process();
 		world_.update(kernel_);
+		kernel_.process();
 	}
 	return 0;
 }
